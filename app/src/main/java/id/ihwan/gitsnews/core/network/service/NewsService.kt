@@ -1,6 +1,10 @@
 package id.ihwan.gitsnews.core.network.service
 
 import id.ihwan.gitsnews.core.network.Network
+import id.ihwan.gitsnews.feature.headline.News
+import io.reactivex.Single
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface NewsService {
 
@@ -15,12 +19,20 @@ interface NewsService {
 
         private fun createInstance(): NewsService{
             instance = Network.createService(NewsService::class.java)
-            return instance!!
+            return instance as NewsService
         }
 
         fun removeInstance(){
             instance = null
         }
     }
+
+    @GET("top-headlines/")
+    fun getTopHeadline(@Query("country") country: String?,
+                       @Query("apiKey") key: String?): Single<News>
+
+    @GET("everything")
+    fun getEverything(@Query("q") query: String?,
+                      @Query("apiKey") key: String?): Single<News>
 
 }
