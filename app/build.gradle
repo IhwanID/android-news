@@ -18,17 +18,48 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'BASE_URL', '"https://newsapi.org/v2/"'
+            buildConfigField 'String', 'API_KEY', '"6c687dac35bc4f8cb79d797d61704a72"'
         }
+        debug{
+            buildConfigField 'String', 'BASE_URL', '"https://newsapi.org/v2/"'
+            buildConfigField 'String', 'API_KEY', '"6c687dac35bc4f8cb79d797d61704a72"'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //layout & image
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "androidx.cardview:cardview:$cardVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+
+    //networking
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    implementation 'androidx.appcompat:appcompat:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
 }
