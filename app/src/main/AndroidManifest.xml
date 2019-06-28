@@ -10,20 +10,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".feature.SplashActivity">
-        </activity>
-        <activity android:name=".feature.DetailActivity">
-        </activity>
-        <activity android:name=".feature.profile.ProfileActivity">
-        </activity>
-        <activity android:name=".feature.about.AboutActivity">
-        </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".feature.entrance.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".feature.home.view.DetailActivity">
+        </activity>
+        <activity android:name=".feature.profile.ProfileActivity">
+        </activity>
+        <activity android:name=".feature.about.AboutActivity">
+        </activity>
+        <activity android:name=".feature.home.view.HomeActivity">
+
         </activity>
     </application>
 
