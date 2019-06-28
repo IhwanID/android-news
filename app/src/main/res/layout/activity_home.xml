@@ -13,18 +13,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/AppTabLayout"
-                app:tabTextAppearance="@style/AppTabTextAppearance">
+                android:layout_height="wrap_content">
 
-            </com.google.android.material.tabs.TabLayout>
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    android:elevation="0dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTabLayout"
+                    app:tabMode="fixed"
+                    app:tabGravity="fill"
+                    app:tabTextAppearance="@style/AppTabTextAppearance"/>
+            </com.google.android.material.appbar.AppBarLayout>
+
 
             <androidx.viewpager.widget.ViewPager
-                android:layout_below="@id/tabLayout"
+                android:layout_below="@id/appBar"
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

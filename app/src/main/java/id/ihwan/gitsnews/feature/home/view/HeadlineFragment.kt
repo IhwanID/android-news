@@ -38,6 +38,7 @@ class HeadlineFragment : BaseHomeFragment() {
         }
 
         viewModel.requestHeadline()
+
         viewModel.articles.observe(this, Observer {
             adapter.loadData(it)
         })
