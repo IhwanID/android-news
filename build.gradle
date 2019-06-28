@@ -36,5 +36,5 @@ ext {
     retrofitVersion = '2.5.0'
     rxAndroidVersion = '2.1.0'
     rxKotlinVersion = '2.3.0'
-
+    lottieVersion = '2.8.0'
 }

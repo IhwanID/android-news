@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.core.platform.BaseHomeFragment
 import id.ihwan.gitsnews.databinding.FragmentAndroidBinding
+import id.ihwan.gitsnews.core.utils.LoadingDialog
 
 class AndroidFragment : BaseHomeFragment() {
 
@@ -38,6 +39,10 @@ class AndroidFragment : BaseHomeFragment() {
         }
 
         viewModel.requestAndroid()
+
+        viewModel.getLoading().observe(this, Observer {
+            if (it) LoadingDialog.show(activity) else LoadingDialog.dismiss()
+        })
 
         viewModel.android.observe(this, Observer {
             adapter.loadData(it)

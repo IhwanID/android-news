@@ -36,5 +36,6 @@ open class BaseHomeFragment : Fragment(){
         super.onCreate(savedInstanceState)
 
         activity = getActivity() as HomeActivity
+
     }
 }

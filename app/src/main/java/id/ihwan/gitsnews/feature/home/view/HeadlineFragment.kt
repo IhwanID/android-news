@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.core.platform.BaseHomeFragment
 import id.ihwan.gitsnews.databinding.FragmentHeadlineBinding
+import id.ihwan.gitsnews.core.utils.LoadingDialog
 
 
 class HeadlineFragment : BaseHomeFragment() {
@@ -38,6 +39,10 @@ class HeadlineFragment : BaseHomeFragment() {
         }
 
         viewModel.requestHeadline()
+
+        viewModel.getLoading().observe(this, Observer {
+            if (it) LoadingDialog.show(activity) else LoadingDialog.dismiss()
+        })
 
         viewModel.articles.observe(this, Observer {
             adapter.loadData(it)

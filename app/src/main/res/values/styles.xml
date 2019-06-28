@@ -28,4 +28,10 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <style name="Theme.DialogNoTitle" parent="android:style/Theme.Translucent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
