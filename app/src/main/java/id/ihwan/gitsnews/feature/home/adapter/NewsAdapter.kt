@@ -2,12 +2,13 @@ package id.ihwan.gitsnews.feature.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import id.ihwan.gitsnews.core.platform.BaseAdapter
 import id.ihwan.gitsnews.databinding.ListItemNewsBinding
 import id.ihwan.gitsnews.feature.home.model.News
 
-class NewsAdapter: BaseAdapter<NewsAdapter.ViewHolder, News.Articles>() {
+class NewsAdapter(val onClick: (News.Articles) -> Unit): BaseAdapter<NewsAdapter.ViewHolder, News.Articles>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListItemNewsBinding.inflate(inflater, parent, false)
@@ -16,7 +17,10 @@ class NewsAdapter: BaseAdapter<NewsAdapter.ViewHolder, News.Articles>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = models[position]
-        holder.bind(article)
+        holder.apply {
+            bind(article)
+            itemView.setOnClickListener{onClick(article)}
+        }
     }
 
     class ViewHolder(private val binding: ListItemNewsBinding)

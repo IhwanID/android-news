@@ -1,11 +1,15 @@
 package id.ihwan.gitsnews.feature.home.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class News(
     var status: String = "" ,
     var totalResults: Int = 0,
     val articles: List<Articles>
 
 ){
+    @Parcelize
     data class Articles(
             val source: Source = Source(),
             var author: String? = "",
@@ -15,10 +19,10 @@ data class News(
             var urlToImage: String? = "",
             var publishedAt: String? = "",
             var content: String? = ""
-    ){
+    ) : Parcelable {
+        @Parcelize
         data class Source(
-            var id: Int = 0,
             var name: String = ""
-        )
+        ): Parcelable
     }
 }

@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_info"
         android:title="@string/about" />
 
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_info"
+        android:title="@string/profile" />
+
 </menu>

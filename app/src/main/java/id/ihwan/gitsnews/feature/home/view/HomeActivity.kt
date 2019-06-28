@@ -1,5 +1,6 @@
 package id.ihwan.gitsnews.feature.home.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -8,12 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.databinding.ActivityHomeBinding
-import id.ihwan.gitsnews.feature.home.adapter.NewsAdapter
-import id.ihwan.gitsnews.feature.home.viewmodel.HomeViewModel
+import id.ihwan.gitsnews.feature.about.AboutActivity
+import id.ihwan.gitsnews.feature.profile.ProfileActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -79,12 +79,12 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.about -> {
-
+            startActivity(Intent(this, AboutActivity::class.java))
             true
         }
 
         else -> {
-
+            startActivity(Intent(this, ProfileActivity::class.java))
             super.onOptionsItemSelected(item)
         }
     }
