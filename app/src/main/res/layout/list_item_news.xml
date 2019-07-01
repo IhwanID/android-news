@@ -22,7 +22,8 @@
             app:cardCornerRadius="6dp">
 
             <ImageView
-                tools:background="@drawable/ic_launcher_background"
+                tools:src="@drawable/server"
+                tools:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@{model.urlToImage}" />
@@ -32,20 +33,25 @@
         <LinearLayout
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_margin="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                tools:text="@string/example_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="2"
                 android:fontFamily="@font/roboto"
                 android:textColor="@color/black"
                 android:text="@{model.title}" />
             <TextView
+                tools:text="@string/example_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:textSize="12sp"
+                android:maxLines="7"
                 android:text="@{model.description}" />
         </LinearLayout>
 
