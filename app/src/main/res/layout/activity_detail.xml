@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_gravity="center_vertical|end"
-                android:text="@{model.content}" />
+                android:text="@{model.content + @string/example_content}" />
         </LinearLayout>
     </ScrollView>
 
