@@ -1,4 +1,4 @@
-GitNews Powered By NewsAPI.org
+NewsApp Android Powered By NewsAPI.org
 
 Tech Stark
 
