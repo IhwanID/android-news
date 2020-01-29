@@ -6,6 +6,26 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+android.applicationVariants.all { variant ->
+    variant.outputs.all {
+        def date = new Date()
+        def formattedDate = date.format('dd_MMM_yyyy')
+        outputFileName = "android-news"
+        outputFileName += "-" + formattedDate
+        switch (variant.buildType.name) {
+            case "release":
+                outputFileName += "-production.apk"
+                break
+            case "debug":
+                outputFileName += "-dev.apk"
+                break
+            default:
+                outputFileName += "-" + variant.buildType.name + ".apk"
+                break
+        }
+    }
+}
+
 android {
     compileSdkVersion 29
     defaultConfig {

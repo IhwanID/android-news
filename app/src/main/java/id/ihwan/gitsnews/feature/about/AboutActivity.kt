@@ -1,10 +1,10 @@
 package id.ihwan.gitsnews.feature.about
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import id.ihwan.gitsnews.R
+import id.ihwan.gitsnews.core.platform.BaseActivity
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
