@@ -26,6 +26,6 @@ abstract class BaseViewModel: ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        compositeDisposable.clear()
+        if (!compositeDisposable.isDisposed) compositeDisposable.clear()
     }
 }
