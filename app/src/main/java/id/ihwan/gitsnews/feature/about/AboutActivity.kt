@@ -1,13 +1,11 @@
 package id.ihwan.gitsnews.feature.about
 
-import android.os.Bundle
+
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.core.platform.BaseActivity
+import id.ihwan.gitsnews.databinding.ActivityAboutBinding
 
-class AboutActivity : BaseActivity() {
+class AboutActivity : BaseActivity<ActivityAboutBinding>(R.layout.activity_about) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
-    }
+
 }
