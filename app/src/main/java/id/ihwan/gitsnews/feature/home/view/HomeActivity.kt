@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
+import dagger.Module
+import dagger.android.ContributesAndroidInjector
 import id.ihwan.gitsnews.R
+import id.ihwan.gitsnews.core.di.FragmentScoped
 import id.ihwan.gitsnews.core.platform.BaseActivity
 import id.ihwan.gitsnews.databinding.ActivityHomeBinding
 import id.ihwan.gitsnews.feature.about.AboutActivity
@@ -70,7 +72,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_app_bar, menu)
         return super.onCreateOptionsMenu(menu)
 
     }
@@ -88,4 +90,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
     }
 
 
+}
+
+@Module
+abstract class HomeActivityModule{
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeHeadlineFragment(): HeadlineFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeAndroidFragment(): AndroidFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeDesignFragment(): DesignFragment
 }

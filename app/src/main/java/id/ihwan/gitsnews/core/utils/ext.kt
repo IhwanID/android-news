@@ -6,6 +6,13 @@ import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 fun Activity.showWait() = LoadingDialog.show(this)
 
@@ -24,3 +31,14 @@ fun Activity.setWhiteStatusBar() {
         window.statusBarColor = Color.WHITE
     }
 }
+
+fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) {
+    liveData.removeObservers(this)
+    liveData.observe(this, Observer(body))
+}
+
+fun Activity?.toast(@StringRes resId: Int) =
+    Toast.makeText(this, this?.getString(resId), Toast.LENGTH_SHORT).show()
+
+fun Disposable.disposedBy(compositeDisposable: CompositeDisposable) =
+    compositeDisposable.add(this)

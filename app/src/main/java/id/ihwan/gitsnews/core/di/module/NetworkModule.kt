@@ -34,6 +34,7 @@ class NetworkModule {
             val builderNew = chain.request().newBuilder()
             builderNew.addHeader("Accept", "application/json")
             builderNew.addHeader("Content-Type", "application/json")
+            builderNew.addHeader("x-api-key", BuildConfig.API_KEY)
             val requestNew = builderNew.build()
             chain.proceed(requestNew)
         }

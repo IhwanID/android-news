@@ -6,6 +6,7 @@ import id.ihwan.gitsnews.core.di.ActivityScoped
 import id.ihwan.gitsnews.feature.about.AboutActivity
 import id.ihwan.gitsnews.feature.home.view.DetailActivity
 import id.ihwan.gitsnews.feature.home.view.HomeActivity
+import id.ihwan.gitsnews.feature.home.view.HomeActivityModule
 import id.ihwan.gitsnews.feature.profile.ProfileActivity
 
 @Module
@@ -15,7 +16,7 @@ abstract class ActivityModule {
     abstract fun contributeAboutActivity(): AboutActivity
 
     @ActivityScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector(modules = [HomeActivityModule::class])
     abstract fun contributeHomeActivity(): HomeActivity
 
     @ActivityScoped

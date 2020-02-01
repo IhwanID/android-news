@@ -7,22 +7,17 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseViewModel: ViewModel() {
 
-    var compositeDisposable: CompositeDisposable = CompositeDisposable()
+    protected val compositeDisposable = CompositeDisposable()
 
-    protected val loading = MutableLiveData<Boolean>()
+    private val loading = MutableLiveData<Boolean>()
 
 
-    protected fun onRequestStart(){
-        loading.value = true
-    }
+    protected fun startLoading() = loading.postValue(true)
 
-    protected fun onRequestFinish(){
-        loading.value = false
-    }
 
-    fun getLoading(): LiveData<Boolean> {
-        return loading
-    }
+    protected fun finishLoading() = loading.postValue(false)
+
+    fun getLoading(): LiveData<Boolean> = loading
 
     override fun onCleared() {
         super.onCleared()

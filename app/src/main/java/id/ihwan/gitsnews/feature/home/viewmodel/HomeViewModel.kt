@@ -2,7 +2,6 @@ package id.ihwan.gitsnews.feature.home.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import id.ihwan.gitsnews.BuildConfig
 import id.ihwan.gitsnews.core.network.service.NewsService
 import id.ihwan.gitsnews.core.platform.BaseViewModel
 import id.ihwan.gitsnews.feature.home.model.News
@@ -22,11 +21,11 @@ class HomeViewModel @Inject constructor(
 
     fun requestHeadline() {
         service
-            .getTopHeadline("id", BuildConfig.API_KEY)
+            .getTopHeadline("id")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { onRequestStart() }
-            .doAfterTerminate { onRequestFinish() }
+            .doOnSubscribe { startLoading() }
+            .doAfterTerminate { finishLoading() }
             .subscribe(object : SingleObserver<News> {
                 override fun onSuccess(data: News) {
                     data.let {
@@ -49,11 +48,11 @@ class HomeViewModel @Inject constructor(
 
     fun requestAndroid() {
         service
-            .getEverything("android", BuildConfig.API_KEY)
+            .getEverything("android")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { onRequestStart() }
-            .doAfterTerminate { onRequestFinish() }
+            .doOnSubscribe { startLoading() }
+            .doAfterTerminate { finishLoading() }
             .subscribe(object : SingleObserver<News> {
                 override fun onSuccess(data: News) {
                     data.let {
@@ -75,11 +74,11 @@ class HomeViewModel @Inject constructor(
 
     fun requestDesign() {
         service
-            .getEverything("design", BuildConfig.API_KEY)
+            .getEverything("design")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { onRequestStart() }
-            .doAfterTerminate { onRequestFinish() }
+            .doOnSubscribe { startLoading() }
+            .doAfterTerminate { finishLoading() }
             .subscribe(object : SingleObserver<News> {
                 override fun onSuccess(data: News) {
                     data.let {
