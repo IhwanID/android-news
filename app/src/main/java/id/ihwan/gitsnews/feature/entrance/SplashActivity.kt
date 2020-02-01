@@ -2,12 +2,12 @@ package id.ihwan.gitsnews.feature.entrance
 
 import android.content.Intent
 import android.os.Bundle
-import dagger.android.support.DaggerAppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import id.ihwan.gitsnews.feature.home.view.HomeActivity
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.core.utils.setWhiteStatusBar
 
-class SplashActivity : DaggerAppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.SplashTheme)

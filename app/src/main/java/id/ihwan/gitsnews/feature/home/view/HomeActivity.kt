@@ -4,27 +4,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import id.ihwan.gitsnews.R
+import id.ihwan.gitsnews.core.platform.BaseActivity
 import id.ihwan.gitsnews.databinding.ActivityHomeBinding
 import id.ihwan.gitsnews.feature.about.AboutActivity
 import id.ihwan.gitsnews.feature.profile.ProfileActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
     private lateinit var viewPager: ViewPager
 
-    private lateinit var binding: ActivityHomeBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         setSupportActionBar(binding.toolbar)
         initViewPager()
     }

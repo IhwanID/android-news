@@ -10,15 +10,18 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class HomeViewModel : BaseViewModel() {
+class HomeViewModel @Inject constructor(
+    private val service: NewsService
+) : BaseViewModel() {
 
     val articles = MutableLiveData<List<News.Articles>>()
     val android = MutableLiveData<List<News.Articles>>()
     val design = MutableLiveData<List<News.Articles>>()
 
     fun requestHeadline() {
-        NewsService.instance()
+        service
             .getTopHeadline("id", BuildConfig.API_KEY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -45,7 +48,7 @@ class HomeViewModel : BaseViewModel() {
 
 
     fun requestAndroid() {
-        NewsService.instance()
+        service
             .getEverything("android", BuildConfig.API_KEY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -71,7 +74,7 @@ class HomeViewModel : BaseViewModel() {
     }
 
     fun requestDesign() {
-        NewsService.instance()
+        service
             .getEverything("design", BuildConfig.API_KEY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

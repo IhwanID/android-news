@@ -2,9 +2,10 @@ package id.ihwan.gitsnews.feature.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import id.ihwan.gitsnews.core.platform.BaseViewModel
 
-class ProfileViewModel: ViewModel() {
+class ProfileViewModel: BaseViewModel() {
+
     private val profile = MutableLiveData<Profile>()
 
     init { profile.postValue(Profile()) }
