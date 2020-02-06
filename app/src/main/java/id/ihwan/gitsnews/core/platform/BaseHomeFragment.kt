@@ -6,10 +6,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.DaggerFragment
 import id.ihwan.gitsnews.feature.home.adapter.NewsAdapter
-import id.ihwan.gitsnews.feature.home.model.News
 import id.ihwan.gitsnews.feature.home.view.HomeActivity
 import id.ihwan.gitsnews.feature.home.viewmodel.HomeViewModel
-import id.ihwan.gitsnews.feature.home.view.DetailActivity
+import id.ihwan.gitsnews.feature.home.view.WebViewActivity
 import javax.inject.Inject
 
 open class BaseHomeFragment : DaggerFragment(){
@@ -23,15 +22,17 @@ open class BaseHomeFragment : DaggerFragment(){
 
     val adapter: NewsAdapter by lazy {
         NewsAdapter{article ->
-            goToDetail(article)
+            goToDetail(article.url, article.title)
 
         }
     }
 
-    private fun goToDetail(article: News.Articles) {
+    private fun goToDetail(url: String?, title: String?) {
 
-        val i = Intent(activity, DetailActivity::class.java)
-        i.putExtra("article", article)
+        val i = Intent(activity, WebViewActivity::class.java).apply {
+            putExtra("url", url)
+            putExtra("title", title)
+        }
         startActivity(i)
     }
 

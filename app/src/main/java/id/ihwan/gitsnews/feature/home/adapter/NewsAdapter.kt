@@ -2,7 +2,6 @@ package id.ihwan.gitsnews.feature.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import id.ihwan.gitsnews.core.platform.BaseAdapter
 import id.ihwan.gitsnews.databinding.ListItemNewsBinding

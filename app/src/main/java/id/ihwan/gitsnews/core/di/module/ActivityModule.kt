@@ -7,6 +7,7 @@ import id.ihwan.gitsnews.feature.about.AboutActivity
 import id.ihwan.gitsnews.feature.home.view.DetailActivity
 import id.ihwan.gitsnews.feature.home.view.HomeActivity
 import id.ihwan.gitsnews.feature.home.view.HomeActivityModule
+import id.ihwan.gitsnews.feature.home.view.WebViewActivity
 import id.ihwan.gitsnews.feature.profile.ProfileActivity
 
 @Module
@@ -26,6 +27,10 @@ abstract class ActivityModule {
     @ActivityScoped
     @ContributesAndroidInjector()
     abstract fun contributeProfileActivity(): ProfileActivity
+
+    @ActivityScoped
+    @ContributesAndroidInjector()
+    abstract fun contributeWebViewActivity(): WebViewActivity
 
 
 }
