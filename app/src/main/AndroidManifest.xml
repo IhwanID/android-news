@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".feature.home.view.WebViewActivity"></activity>
+        <activity android:name=".feature.home.view.WebViewActivity"/>
         <activity
             android:name=".feature.entrance.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -27,7 +27,7 @@
         <activity android:name=".feature.home.view.DetailActivity" />
         <activity android:name=".feature.profile.ProfileActivity" />
         <activity android:name=".feature.about.AboutActivity" />
-        <activity android:name=".feature.home.view.HomeActivity"></activity>
+        <activity android:name=".feature.home.view.HomeActivity"/>
     </application>
 
 </manifest>

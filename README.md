@@ -11,10 +11,18 @@ Tech Stark
 - WebView
 - Lottie Animation for loading
 
-TODO 
+Upcoming features
+-----------------
 - Navigation Component
 - Paging
 
+Screenshots
+-----------
+![Main](screenshots/main.jpg "Main Screen")
+![Main](screenshots/detail.jpg "Detail Screen")
 
-![main](https://raw.githubusercontent.com/IhwanID/android-test-gits/master/app/src/main/res/drawable/main.jpg)
-![main](https://raw.githubusercontent.com/IhwanID/android-test-gits/master/app/src/main/res/drawable/detail.jpg)
+Libraries Used
+--------------
+* [Picasso][0] for image loading
+
+[0]: https://square.github.io/picasso/
