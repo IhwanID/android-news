@@ -42,7 +42,7 @@ ext {
     okhttp3Version = '3.12.0'
     daggerVersion = '2.22.1'
     nav_version = '2.1.0'
-
+    paging_version = "2.1.1"
     //test
     runnerVersion = '1.1.1'
     espressoVersion = '3.2.0'
