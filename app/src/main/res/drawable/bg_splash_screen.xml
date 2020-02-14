@@ -3,10 +3,7 @@
 
     <item android:drawable="@drawable/color_bg_splash_screen" />
 
-    <item>
-        <bitmap android:src="@drawable/logo"
-            android:gravity="center" />
-
-    </item>
+    <item android:drawable="@drawable/ic_logo"
+        android:gravity="center"/>
 
 </layer-list>
