@@ -16,6 +16,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>(R.layout.activity_p
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         viewModel.getProfile().observe(this, Observer {
             Log.d("data", it.toString())
         })

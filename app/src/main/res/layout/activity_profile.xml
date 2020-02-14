@@ -1,17 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="profile"
+            type="id.ihwan.gitsnews.feature.profile.Profile" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.profile.ProfileActivity">
 
+        <LinearLayout
+            android:id="@+id/profile_photo_name"
+            android:background="@android:color/holo_blue_light"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="275dp">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/image"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/profile"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/stroke_background"/>
+
+            <TextView
+                android:id="@+id/name"
+                tools:text="Ihwan Dede"
+                android:layout_marginTop="16dp"
+                android:text="@{profile.name}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_social"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <ImageView
+                    android:id="@+id/facebook"
+                    android:padding="25dp"
+                    android:src="@drawable/facebook"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/instagram"
+                    android:padding="25dp"
+                    android:src="@drawable/instagram"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/twitter"
+                    android:padding="25dp"
+                    android:src="@drawable/twitter"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:gravity="center|start"
+            android:padding="10dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/card_social"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/gmail"
+            android:drawableEnd="@drawable/ic_navigate"
+            android:text="@{profile.email}"
+            android:layout_centerHorizontal="true"
+            tools:text="mynameisihwan@gmail.com"/>
+
+        <TextView
+            android:id="@+id/linkedin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:gravity="center|start"
+            android:padding="10dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/email"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/linkedin"
+            android:drawableEnd="@drawable/ic_navigate"
+            android:text="Ihwan Dede"
+            android:layout_centerHorizontal="true"
+            tools:text="Ihwan Dede"/>
+
+        <TextView
+            android:id="@+id/whatsapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:gravity="center|start"
+            android:padding="10dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/linkedin"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/whatsapp"
+            android:drawableEnd="@drawable/ic_navigate"
+            android:text="@{profile.phone}"
+            android:layout_centerHorizontal="true"
+            tools:text="+6289693626163"/>
+
+        <TextView
+            android:id="@+id/github"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:gravity="center|start"
+            android:padding="10dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/whatsapp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/github"
+            android:drawableEnd="@drawable/ic_navigate"
+            android:text="IhwanID"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
 </layout>
