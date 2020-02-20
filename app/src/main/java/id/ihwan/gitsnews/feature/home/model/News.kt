@@ -6,12 +6,6 @@ import kotlinx.android.parcel.Parcelize
 import java.text.SimpleDateFormat
 import java.util.*
 
-data class News(
-    var status: String = "" ,
-    var totalResults: Int = 0,
-    val articles: List<Articles>
-
-){
     @Parcelize
     data class Articles(
             val source: Source = Source(),
@@ -45,4 +39,3 @@ data class News(
             return newDate
         }
     }
-}

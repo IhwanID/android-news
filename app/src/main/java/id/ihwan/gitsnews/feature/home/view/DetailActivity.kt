@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.databinding.ActivityDetailBinding
-import id.ihwan.gitsnews.feature.home.model.News
+import id.ihwan.gitsnews.feature.home.model.Articles
 
 class DetailActivity : AppCompatActivity() {
 
@@ -16,7 +16,7 @@ class DetailActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
 
         val bundle = intent.extras
-        val article = bundle?.getParcelable<News.Articles>("article")
+        val article = bundle?.getParcelable<Articles>("article")
 
         binding.model = article
 

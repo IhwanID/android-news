@@ -1,10 +1,10 @@
 package id.ihwan.gitsnews.feature.home.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import id.ihwan.gitsnews.core.network.response.ArticleListResponse
 import id.ihwan.gitsnews.core.network.service.NewsService
 import id.ihwan.gitsnews.core.platform.BaseViewModel
-import id.ihwan.gitsnews.feature.home.model.News
+import id.ihwan.gitsnews.feature.home.model.Articles
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -15,9 +15,9 @@ class HomeViewModel @Inject constructor(
     private val service: NewsService
 ) : BaseViewModel() {
 
-    val articles = MutableLiveData<List<News.Articles>>()
-    val android = MutableLiveData<List<News.Articles>>()
-    val design = MutableLiveData<List<News.Articles>>()
+    val headline = MutableLiveData<List<Articles>>()
+    val everything = MutableLiveData<List<Articles>>()
+
 
     fun requestHeadline() {
         service
@@ -26,75 +26,45 @@ class HomeViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { startLoading() }
             .doAfterTerminate { finishLoading() }
-            .subscribe(object : SingleObserver<News> {
-                override fun onSuccess(data: News) {
-                    data.let {
-                        articles.postValue(data.articles)
-                    }
+            .subscribe(object : SingleObserver<ArticleListResponse> {
+                override fun onSuccess(t: ArticleListResponse) {
+                    headline.postValue(t.articles)
                 }
 
                 override fun onSubscribe(d: Disposable) {
-
+                    //do notjing
                 }
 
                 override fun onError(e: Throwable) {
-
+                    //do nothing
                 }
 
-            }
-            )
+            })
     }
 
 
-    fun requestAndroid() {
+    fun requestEverything() {
         service
-            .getEverything("android")
+            .getEverything("jokowi")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { startLoading() }
             .doAfterTerminate { finishLoading() }
-            .subscribe(object : SingleObserver<News> {
-                override fun onSuccess(data: News) {
-                    data.let {
-                        android.postValue(data.articles)
-                    }
+            .subscribe(object : SingleObserver<ArticleListResponse> {
+                override fun onSuccess(t: ArticleListResponse) {
+                  everything.postValue(t.articles)
                 }
 
                 override fun onSubscribe(d: Disposable) {
-                    Log.d("Subskreb", d.toString())
+                    //do nothing
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.d("Erorr", e.toString())
+                    //do nothing
                 }
 
             }
             )
     }
 
-    fun requestDesign() {
-        service
-            .getEverything("design")
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { startLoading() }
-            .doAfterTerminate { finishLoading() }
-            .subscribe(object : SingleObserver<News> {
-                override fun onSuccess(data: News) {
-                    data.let {
-                        design.postValue(data.articles)
-                    }
-                }
-
-                override fun onSubscribe(d: Disposable) {
-                    Log.d("Subskreb", d.toString())
-                }
-
-                override fun onError(e: Throwable) {
-                    Log.d("Erorr", e.toString())
-                }
-
-            }
-            )
-    }
 }

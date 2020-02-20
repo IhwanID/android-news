@@ -7,7 +7,7 @@
 
         <variable
                 name="model"
-                type="id.ihwan.gitsnews.feature.home.model.News.Articles" />
+                type="id.ihwan.gitsnews.feature.home.model.Articles" />
     </data>
 
     <ScrollView

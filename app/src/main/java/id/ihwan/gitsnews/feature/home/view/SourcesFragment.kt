@@ -11,21 +11,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.core.platform.BaseHomeFragment
-import id.ihwan.gitsnews.databinding.FragmentAndroidBinding
+import id.ihwan.gitsnews.databinding.FragmentDesignBinding
 import id.ihwan.gitsnews.core.utils.LoadingDialog
 
-class AndroidFragment : BaseHomeFragment() {
+
+class SourcesFragment : BaseHomeFragment() {
 
     companion object {
-        fun newInstance(): AndroidFragment {
-            return AndroidFragment()
+        fun newInstance(): SourcesFragment {
+            return SourcesFragment()
         }
     }
-
-    private lateinit var binding: FragmentAndroidBinding
+    private lateinit var binding: FragmentDesignBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_android, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_design, container, false)
         return binding.root
     }
 
@@ -34,19 +34,22 @@ class AndroidFragment : BaseHomeFragment() {
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = this@AndroidFragment.adapter
+            adapter = this@SourcesFragment.adapter
             setHasFixedSize(true)
         }
 
-        viewModel.requestAndroid()
+        viewModel.requestDesign()
 
         viewModel.getLoading().observe(this, Observer {
             if (it) LoadingDialog.show(activity) else LoadingDialog.dismiss()
         })
 
-        viewModel.android.observe(this, Observer {
+        viewModel.design.observe(this, Observer {
             adapter.loadData(it)
         })
+
+
     }
+
 
 }

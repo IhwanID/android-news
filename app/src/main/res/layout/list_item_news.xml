@@ -6,7 +6,7 @@
     <data>
         <variable
             name="model"
-            type="id.ihwan.gitsnews.feature.home.model.News.Articles" />
+            type="id.ihwan.gitsnews.feature.home.model.Articles" />
     </data>
 
     <LinearLayout
@@ -26,7 +26,7 @@
                 tools:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@{model.urlToImage}" />
+                android:setImageFromUrl="@{model.urlToImage}" />
 
         </com.google.android.material.card.MaterialCardView>
 

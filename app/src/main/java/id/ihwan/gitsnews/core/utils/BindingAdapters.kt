@@ -6,7 +6,7 @@ import com.squareup.picasso.Picasso
 
 object BindingAdapters {
     @JvmStatic
-    @BindingAdapter("android:src")
+    @BindingAdapter("android:setImageFromUrl")
     fun setImageUrl(view: ImageView, url: String) {
         Picasso.get()
                 .load(url)

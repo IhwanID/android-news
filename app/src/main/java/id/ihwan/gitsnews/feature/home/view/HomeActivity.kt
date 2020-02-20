@@ -42,8 +42,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
     inner class NewsPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
         private var headlineFragment: HeadlineFragment = HeadlineFragment.newInstance()
-        private var androidFragment: AndroidFragment = AndroidFragment.newInstance()
-        private var designFragment: DesignFragment = DesignFragment.newInstance()
+        private var androidFragment: EverythingFragment = EverythingFragment.newInstance()
+        private var designFragment: SourcesFragment = SourcesFragment.newInstance()
 
 
         override fun getCount(): Int {
@@ -63,8 +63,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
         override fun getPageTitle(position: Int): CharSequence? {
             return when (position) {
                 0 -> "Headline"
-                1 -> "Android"
-                else -> "Design"
+                1 -> "Everything"
+                else -> "Sources"
             }
 
         }
@@ -100,9 +100,9 @@ abstract class HomeActivityModule{
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract fun contributeAndroidFragment(): AndroidFragment
+    abstract fun contributeAndroidFragment(): EverythingFragment
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract fun contributeDesignFragment(): DesignFragment
+    abstract fun contributeDesignFragment(): SourcesFragment
 }
