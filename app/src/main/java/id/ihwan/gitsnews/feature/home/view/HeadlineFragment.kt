@@ -44,7 +44,7 @@ class HeadlineFragment : BaseHomeFragment() {
             if (it) LoadingDialog.show(activity) else LoadingDialog.dismiss()
         })
 
-        viewModel.articles.observe(this, Observer {
+        viewModel.headline.observe(this, Observer {
             adapter.loadData(it)
         })
     }

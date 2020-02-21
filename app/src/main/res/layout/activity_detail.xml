@@ -51,7 +51,7 @@
             <ImageView
                     tools:src="@drawable/server"
                     android:scaleType="centerCrop"
-                    android:src="@{model.urlToImage}"
+                    android:setImageFromUrl="@{model.urlToImage}"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:contentDescription="@string/image" />

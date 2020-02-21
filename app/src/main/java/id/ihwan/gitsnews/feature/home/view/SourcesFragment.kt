@@ -38,15 +38,15 @@ class SourcesFragment : BaseHomeFragment() {
             setHasFixedSize(true)
         }
 
-        viewModel.requestDesign()
+        //viewModel.re()
 
         viewModel.getLoading().observe(this, Observer {
             if (it) LoadingDialog.show(activity) else LoadingDialog.dismiss()
         })
 
-        viewModel.design.observe(this, Observer {
-            adapter.loadData(it)
-        })
+//        viewModel.design.observe(this, Observer {
+//            adapter.loadData(it)
+//        })
 
 
     }
