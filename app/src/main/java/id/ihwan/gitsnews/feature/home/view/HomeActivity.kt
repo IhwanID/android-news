@@ -79,7 +79,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.about -> {
-            startActivity(Intent(this, AboutActivity::class.java))
+            //startActivity(Intent(this, AboutActivity::class.java))
             true
         }
 

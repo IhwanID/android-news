@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.DaggerFragment
+import dagger.internal.DoubleCheck.lazy
 import id.ihwan.gitsnews.feature.home.adapter.NewsAdapter
 import id.ihwan.gitsnews.feature.home.view.HomeActivity
 import id.ihwan.gitsnews.feature.home.viewmodel.HomeViewModel
