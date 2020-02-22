@@ -2,9 +2,11 @@ package id.ihwan.gitsnews.feature.home.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import id.ihwan.gitsnews.core.network.response.ArticleListResponse
+import id.ihwan.gitsnews.core.network.response.SourceListResponse
 import id.ihwan.gitsnews.core.network.service.NewsService
 import id.ihwan.gitsnews.core.platform.BaseViewModel
 import id.ihwan.gitsnews.feature.home.model.Articles
+import id.ihwan.gitsnews.feature.home.model.Sources
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -17,6 +19,7 @@ class HomeViewModel @Inject constructor(
 
     val headline = MutableLiveData<List<Articles>>()
     val everything = MutableLiveData<List<Articles>>()
+    val sources = MutableLiveData<List<Sources>>()
 
 
     fun requestHeadline() {
@@ -52,7 +55,7 @@ class HomeViewModel @Inject constructor(
             .doAfterTerminate { finishLoading() }
             .subscribe(object : SingleObserver<ArticleListResponse> {
                 override fun onSuccess(t: ArticleListResponse) {
-                  everything.postValue(t.articles)
+                    everything.postValue(t.articles)
                 }
 
                 override fun onSubscribe(d: Disposable) {
@@ -62,6 +65,31 @@ class HomeViewModel @Inject constructor(
                 override fun onError(e: Throwable) {
                     //do nothing
                 }
+
+            }
+            )
+    }
+
+    fun requestSources() {
+        service
+            .getSources()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { startLoading() }
+            .doAfterTerminate { finishLoading() }
+            .subscribe(object : SingleObserver<SourceListResponse> {
+                override fun onSuccess(t: SourceListResponse) {
+                    sources.postValue(t.sources)
+                }
+
+                override fun onSubscribe(d: Disposable) {
+                    //do nothing
+                }
+
+                override fun onError(e: Throwable) {
+                    //do nothing
+                }
+
 
             }
             )

@@ -2,6 +2,7 @@ package id.ihwan.gitsnews.feature.home.view
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,15 +39,17 @@ class SourcesFragment : BaseHomeFragment() {
             setHasFixedSize(true)
         }
 
-        //viewModel.re()
+        viewModel.requestSources()
 
         viewModel.getLoading().observe(this, Observer {
             if (it) LoadingDialog.show(activity) else LoadingDialog.dismiss()
         })
 
-//        viewModel.design.observe(this, Observer {
-//            adapter.loadData(it)
-//        })
+        viewModel.sources.observe(this, Observer {
+            for (i in it){
+                Log.d("sources", i.name)
+            }
+        })
 
 
     }
