@@ -1,5 +1,6 @@
 package id.ihwan.gitsnews.feature.home.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -7,14 +8,20 @@ import androidx.recyclerview.widget.RecyclerView
 import id.ihwan.gitsnews.databinding.ListItemNewsBinding
 import id.ihwan.gitsnews.feature.home.model.Articles
 
-class NewsPagedListAdapter(val onClick: (Articles) -> Unit): PagedListAdapter<Articles, NewsPagedListAdapter.NewsViewHolder>(DIFF_CALLBACK) {
+class ArticlesPagedListAdapter(val onClick: (Articles?) -> Unit): PagedListAdapter<Articles, ArticlesPagedListAdapter.ViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ListItemNewsBinding.inflate(inflater, parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val article = getItem(position)
+        holder.apply {
+            bind(article)
+            itemView.setOnClickListener{onClick(article)}
+        }
     }
 
     companion object{
@@ -28,9 +35,9 @@ class NewsPagedListAdapter(val onClick: (Articles) -> Unit): PagedListAdapter<Ar
             }
         }
     }
-    class NewsViewHolder(private val binding: ListItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ListItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(items: Articles) {
+        fun bind(items: Articles?) {
             binding.apply {
                 model= items
                 executePendingBindings()

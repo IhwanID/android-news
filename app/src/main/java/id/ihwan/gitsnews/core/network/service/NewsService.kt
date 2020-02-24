@@ -12,7 +12,8 @@ interface NewsService {
     fun getTopHeadline(@Query("country") country: String?): Single<ArticleListResponse>
 
     @GET("everything")
-    fun getEverything(@Query("q") query: String? = "jokowi"): Single<ArticleListResponse>
+    fun getEverything(@Query("q") query: String? = "jokowi",
+                      @Query("page") page: Int? = 1): Single<ArticleListResponse>
 
     @GET("sources")
     fun getSources(): Single<SourceListResponse>
