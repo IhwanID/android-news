@@ -27,7 +27,8 @@ open class BaseHomeFragment : DaggerFragment(){
         }
     }
 
-    private fun goToDetail(url: String?, title: String?) {
+
+    fun goToDetail(url: String?, title: String?) {
 
         val i = Intent(activity, WebViewActivity::class.java).apply {
             putExtra("url", url)

@@ -2,18 +2,18 @@ package id.ihwan.gitsnews.feature.home.view
 
 
 import android.os.Bundle
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import id.ihwan.gitsnews.R
 import id.ihwan.gitsnews.core.platform.BaseHomeFragment
 import id.ihwan.gitsnews.databinding.FragmentDesignBinding
 import id.ihwan.gitsnews.core.utils.LoadingDialog
+import id.ihwan.gitsnews.feature.home.adapter.SourcesAdapter
 
 
 class SourcesFragment : BaseHomeFragment() {
@@ -23,8 +23,14 @@ class SourcesFragment : BaseHomeFragment() {
             return SourcesFragment()
         }
     }
+
     private lateinit var binding: FragmentDesignBinding
 
+    private val sourcesAdapter: SourcesAdapter by lazy {
+        SourcesAdapter{
+            goToDetail(it.url, it.name)
+        }
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_design, container, false)
         return binding.root
@@ -35,7 +41,7 @@ class SourcesFragment : BaseHomeFragment() {
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = this@SourcesFragment.adapter
+            adapter = this@SourcesFragment.sourcesAdapter
             setHasFixedSize(true)
         }
 
@@ -46,9 +52,7 @@ class SourcesFragment : BaseHomeFragment() {
         })
 
         viewModel.sources.observe(this, Observer {
-            for (i in it){
-                Log.d("sources", i.name)
-            }
+            sourcesAdapter.loadData(it)
         })
 
 

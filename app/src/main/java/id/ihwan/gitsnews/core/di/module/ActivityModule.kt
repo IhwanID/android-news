@@ -4,7 +4,6 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import id.ihwan.gitsnews.core.di.ActivityScoped
 import id.ihwan.gitsnews.feature.about.AboutActivity
-import id.ihwan.gitsnews.feature.home.view.DetailActivity
 import id.ihwan.gitsnews.feature.home.view.HomeActivity
 import id.ihwan.gitsnews.feature.home.view.HomeActivityModule
 import id.ihwan.gitsnews.feature.home.view.WebViewActivity
@@ -20,9 +19,6 @@ abstract class ActivityModule {
     @ContributesAndroidInjector(modules = [HomeActivityModule::class])
     abstract fun contributeHomeActivity(): HomeActivity
 
-    @ActivityScoped
-    @ContributesAndroidInjector()
-    abstract fun contributeDetailActivity(): DetailActivity
 
     @ActivityScoped
     @ContributesAndroidInjector()
