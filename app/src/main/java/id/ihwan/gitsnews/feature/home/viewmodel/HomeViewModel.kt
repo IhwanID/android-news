@@ -1,6 +1,10 @@
 package id.ihwan.gitsnews.feature.home.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import id.ihwan.gitsnews.core.data.remote.ArticlesDataSourceFactory
 import id.ihwan.gitsnews.core.network.response.ArticleListResponse
 import id.ihwan.gitsnews.core.network.response.SourceListResponse
 import id.ihwan.gitsnews.core.network.service.NewsService
@@ -17,10 +21,27 @@ class HomeViewModel @Inject constructor(
     private val service: NewsService
 ) : BaseViewModel() {
 
+
+        val sourceFactory = ArticlesDataSourceFactory(service)
+        val config = PagedList.Config.Builder()
+            .setPageSize(5)
+            .setInitialLoadSizeHint(10)
+            .setEnablePlaceholders(false)
+            .build()
+
+
     val headline = MutableLiveData<List<Articles>>()
     val everything = MutableLiveData<List<Articles>>()
     val sources = MutableLiveData<List<Sources>>()
 
+
+
+
+
+
+    fun getEverything(): LiveData<PagedList<Articles>>{
+        return  LivePagedListBuilder(sourceFactory, config).build()
+    }
 
     fun requestHeadline() {
         service
