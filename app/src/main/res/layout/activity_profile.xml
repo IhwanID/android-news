@@ -99,7 +99,10 @@
             android:drawableEnd="@drawable/ic_navigate"
             android:text="@{profile.email}"
             android:layout_centerHorizontal="true"
-            tools:text="mynameisihwan@gmail.com"/>
+            tools:text="mynameisihwan@gmail.com"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/gmail"
+            android:drawableRight="@drawable/ic_navigate" />
 
         <TextView
             android:id="@+id/linkedin"
@@ -118,7 +121,10 @@
             android:drawableEnd="@drawable/ic_navigate"
             android:text="Ihwan Dede"
             android:layout_centerHorizontal="true"
-            tools:text="Ihwan Dede"/>
+            tools:text="Ihwan Dede"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/linkedin"
+            android:drawableRight="@drawable/ic_navigate" />
 
         <TextView
             android:id="@+id/whatsapp"
@@ -137,7 +143,10 @@
             android:drawableEnd="@drawable/ic_navigate"
             android:text="@{profile.phone}"
             android:layout_centerHorizontal="true"
-            tools:text="+6289693626163"/>
+            tools:text="+6289693626163"
+            android:drawableRight="@drawable/ic_navigate"
+            android:drawableLeft="@drawable/whatsapp"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/github"
@@ -155,7 +164,10 @@
             android:drawableStart="@drawable/github"
             android:drawableEnd="@drawable/ic_navigate"
             android:text="IhwanID"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/github"
+            android:drawableRight="@drawable/ic_navigate" />
 
     </RelativeLayout>
 </layout>
