@@ -16,6 +16,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>(R.layout.activity_p
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     val viewModel: ProfileViewModel by viewModels { viewModelFactory }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
