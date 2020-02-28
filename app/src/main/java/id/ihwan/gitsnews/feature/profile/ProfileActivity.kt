@@ -21,7 +21,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>(R.layout.activity_p
         super.onCreate(savedInstanceState)
 
         viewModel.getProfile().observe(this, Observer {
-            Log.d("data", it.toString())
+           binding.profile = it
         })
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/about"
@@ -12,8 +11,4 @@
         android:icon="@drawable/ic_info"
         android:title="@string/profile" />
 
-    <item android:id="@+id/setting"
-        android:icon="@drawable/ic_setting"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom"/>
 </menu>
