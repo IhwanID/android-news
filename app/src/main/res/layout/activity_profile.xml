@@ -55,29 +55,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:weightSum="3">
+
                 <ImageView
                     android:id="@+id/facebook"
-                    android:padding="25dp"
-                    android:src="@drawable/facebook"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="25dp"
+                    android:src="@drawable/facebook" />
+
                 <ImageView
                     android:id="@+id/instagram"
-                    android:padding="25dp"
-                    android:src="@drawable/instagram"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="25dp"
+                    android:src="@drawable/instagram" />
+
                 <ImageView
                     android:id="@+id/twitter"
-                    android:padding="25dp"
-                    android:src="@drawable/twitter"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="25dp"
+                    android:src="@drawable/twitter" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
