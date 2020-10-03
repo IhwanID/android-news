@@ -20,7 +20,7 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(R.layout.activity_w
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView() {
-        val url = intent.getStringExtra("url")
+        val url = intent.getStringExtra("url") ?: return
         val title = intent.getStringExtra("title")
 
         val toolbar = binding.toolbar.apply {
@@ -38,7 +38,7 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(R.layout.activity_w
     }
 
     inner class CustomWebViewClient : WebViewClient() {
-        override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+        override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
             binding.webView.loadUrl(url)
             return false
         }
