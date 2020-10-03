@@ -28,7 +28,7 @@ android.applicationVariants.all { variant ->
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "id.ihwan.gitsnews"
         minSdkVersion 16
@@ -37,6 +37,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        dataBinding true
     }
     buildTypes {
         release {
@@ -51,12 +54,6 @@ android {
             buildConfigField 'String', 'API_KEY', '"6c687dac35bc4f8cb79d797d61704a72"'
         }
     }
-    androidExtensions {
-        experimental = true
-    }
-    dataBinding {
-        enabled = true
-    }
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
@@ -69,10 +66,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$coreVersion"
+    implementation "androidx.appcompat:appcompat:1.2.0"
     implementation "androidx.core:core-ktx:$coreVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation "androidx.fragment:fragment-ktx:$coreVersion"
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     //layout & image
@@ -101,7 +98,6 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
-    implementation "androidx.appcompat:appcompat:$coreVersion"
     implementation "androidx.legacy:legacy-support-v4:$legacyVersion"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"
